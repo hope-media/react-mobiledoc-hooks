@@ -124,7 +124,8 @@ export default function useMobiledoc(mobiledoc, options) {
           onTeardown: cb => registerRenderCallback(cb),
         },
         options: {},
-        payload: { ...payload, key: nodeKey, ...additionalProps },
+        payload: { ...payload, ...additionalProps },
+        key: nodeKey,
       }
 
       return card.component(props)
@@ -218,18 +219,20 @@ export default function useMobiledoc(mobiledoc, options) {
   }
 
   // Returns/Renders all sections in mobiledoc
-  return mobiledoc.sections.map((section, nodeKey) => {
-    const [type] = section
+  return mobiledoc.sections
+    .map((section, nodeKey) => {
+      const [type] = section
 
-    switch (type) {
-      case MARKUP_SECTION_TYPE:
-        return renderMarkupSection(section, nodeKey)
-      case LIST_SECTION_TYPE:
-        return renderListSection(section, nodeKey)
-      case CARD_SECTION_TYPE:
-        return renderCardSection(section, nodeKey)
-      default:
-        return null
-    }
-  })
+      switch (type) {
+        case MARKUP_SECTION_TYPE:
+          return renderMarkupSection(section, nodeKey)
+        case LIST_SECTION_TYPE:
+          return renderListSection(section, nodeKey)
+        case CARD_SECTION_TYPE:
+          return renderCardSection(section, nodeKey)
+        default:
+          return null
+      }
+    })
+    .filter(Boolean) // Remove null items from array
 }
