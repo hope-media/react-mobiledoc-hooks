@@ -2,6 +2,12 @@
   "name": "react-mobiledoc-hooks",
   "version": "0.1.1",
   "description": "Collection of React hooks for Mobiledoc",
+  "homepage": "https://github.com/hope-media/react-mobiledoc-hooks",
+  "bugs": "https://github.com/hope-media/react-mobiledoc-hooks/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hope-media/react-mobiledoc-hooks.git"
+  },
   "author": "Eduardo Ludi",
   "main": "cjs/index.js",
   "module": "esm/index.js",
