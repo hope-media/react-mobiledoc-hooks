@@ -5,7 +5,7 @@
 ```bash
 yarn add react-mobiledoc-hooks
 
-#or
+# or
 
 npm install react-mobiledoc-hooks
 ```
@@ -14,7 +14,7 @@ npm install react-mobiledoc-hooks
 
 ### The `useMobiledoc` hook
 
-Given a `mobiledoc` document, it outputs a React list of its sections.
+Given a document in [`mobiledoc` format](https://github.com/bustle/mobiledoc-kit/blob/master/MOBILEDOC.md), `useMobiledoc` renders a React list of its sections. A [custom render configuration](#Customization) can be also provided.
 
 ```jsx
 // RichText.js
@@ -58,7 +58,7 @@ const mobiledoc = {
       [
         [0, [], 0, 'This is a '],
         [0, [0], 1, 'useMobiledoc'],
-        [0, [], 0, ' demp'],
+        [0, [], 0, ' demo'],
       ],
     ],
   ],
@@ -81,7 +81,7 @@ The second argument in `useMobiledoc` sets some options:
 - **`cards`**: `array`
 - **`markups`**: `array`
 - **`sections`**: `array`
-- **`additionalProps`**: `object`
+- **`additionalProps`**: `object` - Extra `props` that will be passed to every atom, section and card
 
 `atoms`, `cards`, `markups` and `sections` require array of objects with these attributes:
 
