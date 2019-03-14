@@ -71,9 +71,10 @@ export default function useMobiledoc(mobiledoc, options) {
    * @param {Number} nodeKey Section index
    */
   function renderListSection([type, Tag, markers], nodeKey) {
-    const items = markers.map((item, index) =>
-      renderMarkersOnElement(<li key={index}>{[]}</li>, item, index)
-    )
+    const items = markers.map((item, key) => {
+      const itemKey = `${nodeKey}-${key}`
+      return renderMarkersOnElement(<li key={itemKey}>{[]}</li>, item, itemKey)
+    })
 
     return <Tag key={nodeKey}>{items}</Tag>
   }
@@ -220,8 +221,10 @@ export default function useMobiledoc(mobiledoc, options) {
 
   // Returns/Renders all sections in mobiledoc
   return mobiledoc.sections
-    .map((section, nodeKey) => {
+    .map((section, key) => {
       const [type] = section
+
+      const nodeKey = `mobiledoc-${type}-${key}`
 
       switch (type) {
         case MARKUP_SECTION_TYPE:
