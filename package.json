@@ -1,6 +1,6 @@
 {
   "name": "react-mobiledoc-hooks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Collection of React hooks for Mobiledoc",
   "author": "Eduardo Ludi",
   "main": "cjs/index.js",
